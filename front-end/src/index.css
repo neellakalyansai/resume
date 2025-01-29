@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #091830;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #115e5562;
+  border-radius: 10px;
+}
+
+/* Loader */
+.v {
+  animation: v 1s infinite;
+}
+
+@keyframes v {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.r1 {
+  animation: r1 1s infinite;
+}
+
+@keyframes r1 {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.r2 {
+  animation: r2 1s infinite;
+}
+
+@keyframes r2 {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* input */
+
+input,
+textarea {
+  height: 40px;
+  border: 1px solid gray !important;
+  width: 100% !important;
+  padding-left: 20px !important;
+}
+
+textarea {
+  height: 100px !important;
+  padding-top: 10px !important;
+}
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 2px solid rgb(70, 70, 70) !important;
+}
+
+/* Tabs */
+.ant-tabs-tab-btn{
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
