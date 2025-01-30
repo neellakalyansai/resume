@@ -23,7 +23,8 @@ const portfolioRoutes = require("../Routes/portfolioRoutes");
 app.use("/api", portfolioRoutes); // Prefix all routes with /api
 
 // ✅ Fix: Correctly Serve React Frontend (Only in Production)
-const frontendPath = path.join(process.cwd(), "front-end", "build");
+const frontendPath = path.join(__dirname, "../front-end/build");
+console.log(frontendPath);
 app.use(express.static(frontendPath));
 
 app.get("*", (req, res) => {
