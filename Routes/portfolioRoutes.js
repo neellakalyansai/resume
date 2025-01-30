@@ -39,6 +39,7 @@ router.get("/api/getdata", async (req, res) => {
       contact: contacts[0],
     });
   } catch (err) {
+    console.log(err);
     res.status(500).send({ error: err });
   }
 });
@@ -57,6 +58,7 @@ router.post("/update_intro", async (req, res) => {
       message: "Introduction updated successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -75,6 +77,7 @@ router.post("/update_about", async (req, res) => {
       message: "About updated successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -90,6 +93,7 @@ router.post("/add_education", async (req, res) => {
       message: "Education added successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -108,6 +112,7 @@ router.post("/update_education", async (req, res) => {
       message: "Education updated successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -122,6 +127,7 @@ router.post("/delete_education", async (req, res) => {
       message: "Education deleted successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -137,6 +143,7 @@ router.post("/add_experience", async (req, res) => {
       message: "Experience added successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -155,6 +162,7 @@ router.post("/update_experience", async (req, res) => {
       message: "Experience updated successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -169,6 +177,7 @@ router.post("/delete_experience", async (req, res) => {
       message: "Experience deleted successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -184,6 +193,7 @@ router.post("/add_project", async (req, res) => {
       message: "Project added successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -202,6 +212,7 @@ router.post("/update_project", async (req, res) => {
       message: "Project updated successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -216,6 +227,7 @@ router.post("/delete_project", async (req, res) => {
       message: "Project deleted successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -231,6 +243,7 @@ router.post("/add_certificate", async (req, res) => {
       message: "Certificate added successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -249,6 +262,7 @@ router.post("/update_certificate", async (req, res) => {
       message: "Certificate updated successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -265,6 +279,7 @@ router.post("/delete_certificate", async (req, res) => {
       message: "Certificate deleted successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -283,6 +298,7 @@ router.post("/update_contact", async (req, res) => {
       message: "Contact updated successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
@@ -314,6 +330,7 @@ router.post("/login", async (req, res) => {
       });
     }
   } catch (error) {
+    console.log(error);
     res.status(500).send({ error });
   }
 });
