@@ -22,6 +22,22 @@ const dbconfig = require("../dbconfig");
 const portfolioRoutes = require("../Routes/portfolioRoutes");
 app.use("/api", portfolioRoutes); // Prefix all routes with /api
 
+
+
+
+// ✅ Debug Route to List Frontend Files
+app.get("/api/debug-frontend", (req, res) => {
+    fs.readdir(frontendPath, (err, files) => {
+        if (err) {
+            console.error("❌ Error reading frontend folder:", err);
+            return res.status(500).json({ message: "Frontend folder not found", error: err });
+        }
+        console.log("✅ Frontend Files:", files);
+        res.json({ message: "Frontend files found", files });
+    });
+});
+
+
 // ✅ Fix: Correctly Serve React Frontend (Only in Production)
 const frontendPath = path.join(process.cwd(), "front-end/build");
 
