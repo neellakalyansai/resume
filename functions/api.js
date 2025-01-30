@@ -29,6 +29,7 @@ app.use(express.static(frontendPath));
 app.get("*", (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"), (err) => {
     if (err) {
+        console.log(err);
       res.status(500).send("Error loading frontend.");
     }
   });
