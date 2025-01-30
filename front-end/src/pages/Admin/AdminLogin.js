@@ -17,7 +17,7 @@ function AdminLogin() {
     debugger;
     try {
       dispatch(showLoading());
-      const response = await axios.post("/login", user);
+      const response = await axios.post("/api/login", user);
       dispatch(hideLoading());
       if (response.status === 200) {
         message.success(response.data.message);

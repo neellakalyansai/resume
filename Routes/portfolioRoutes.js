@@ -11,7 +11,7 @@ const {
 } = require("../Models/portfolio-model");
 const User = require("../Models/user-model");
 //Get the portfolio data from the server
-router.get("/getdata", async (req, res) => {
+router.get("/api/getdata", async (req, res) => {
   try {
     const intros = await Intro.find();
     const abouts = await About.find();
