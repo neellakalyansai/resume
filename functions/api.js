@@ -26,16 +26,28 @@ app.use("/api", portfolioRoutes); // Prefix all routes with /api
 
 
 // ✅ Debug Route to List Frontend Files
-app.get("/api/debug-frontend", (req, res) => {
-    fs.readdir(frontendPath, (err, files) => {
-        if (err) {
-            console.error("❌ Error reading frontend folder:", err);
-            return res.status(500).json({ message: "Frontend folder not found", error: err });
-        }
-        console.log("✅ Frontend Files:", files);
-        res.json({ message: "Frontend files found", files });
-    });
+app.get("/api/debug-files", (req, res) => {
+    try {
+        // ✅ List files in the root folder
+        const rootFiles = fs.readdirSync("/");
+        console.log("📁 Root Folder Files:", rootFiles);
+
+        // ✅ List files in the Netlify task folder
+        const taskFiles = fs.readdirSync("/var/task");
+        console.log("📁 /var/task Files:", taskFiles);
+
+        res.json({
+            message: "Files in root and /var/task directories",
+            rootFiles,
+            taskFiles
+        });
+
+    } catch (err) {
+        console.error("❌ Error reading files:", err);
+        res.status(500).json({ message: "Error listing files", error: err });
+    }
 });
+
 
 
 // ✅ Fix: Correctly Serve React Frontend (Only in Production)
