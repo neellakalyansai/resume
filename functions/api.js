@@ -10,37 +10,31 @@ require("../Models/portfolio-model");
 const app = express();
 app.use(express.json());
 
-// Configure CORS
+// ✅ Configure CORS
 app.use(cors({
   origin: '*'
 }));
 
-// Import Database Configuration
+// ✅ Import Database Configuration
 const dbconfig = require("../dbconfig");
 
-// Import Routes
+// ✅ Import Routes
 const portfolioRoutes = require("../Routes/portfolioRoutes");
 app.use("/api", portfolioRoutes); // Prefix all routes with /api
 
-// Deployment Configuration for Serving Frontend
-const frontendPath = path.join(__dirname, "..", "front-end", "build");
-
+// ✅ Fix: Correctly Serve React Frontend (Only in Production)
+const frontendPath = path.join(process.cwd(), "front-end", "build");
 app.use(express.static(frontendPath));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
+  res.sendFile(path.join(frontendPath, "index.html"), (err) => {
+    if (err) {
+      res.status(500).send("Error loading frontend.");
+    }
+  });
 });
 
-// Periodic API Call to Keep Backend Active (REMOVE: Not Needed in Netlify)
-const keepAlive = async () => {
-  try {
-    const response = await fetch("https://your-netlify-site.netlify.app/api");
-    console.log("Keep alive response:", response.status);
-  } catch (error) {
-    console.error("Keep alive error:", error);
-  }
-};
+// ✅ Fix: Remove Keep-Alive Function (Not Needed in Netlify)
 
-// Netlify does not need this, so REMOVE setInterval
-
+// ✅ Export Serverless Handler for Netlify
 module.exports.handler = serverless(app);
