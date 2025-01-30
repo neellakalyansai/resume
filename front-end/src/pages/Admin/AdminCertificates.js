@@ -18,12 +18,12 @@ function AdminCertificates() {
       dispatch(showLoading());
       let response;
       if (selectedItemForEdit) {
-        response = await axios.post('/update_certificate', {
+        response = await axios.post('/api/update_certificate', {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post('/add_certificate', values);
+        response = await axios.post('/api/add_certificate', values);
       }
       dispatch(hideLoading());
       if (response.status === 200) {
@@ -44,7 +44,7 @@ function AdminCertificates() {
   const onDelete = async (item) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post('/delete_certificate', {
+      const response = await axios.post('/api/delete_certificate', {
         _id: item._id,
       });
       dispatch(hideLoading());

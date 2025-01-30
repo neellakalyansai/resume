@@ -21,12 +21,12 @@ function AdminProject() {
       dispatch(showLoading());
       let response;
       if (selectedItemForEdit) {
-        response = await axios.post('/update_project', {
+        response = await axios.post('/api/update_project', {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post('/add_project', values);
+        response = await axios.post('/api/add_project', values);
       }
       dispatch(hideLoading());
       if (response.status === 200) {
@@ -47,7 +47,7 @@ function AdminProject() {
   const onDelete = async (item) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post('/delete_project', {
+      const response = await axios.post('/api/delete_project', {
         _id: item._id,
       });
       dispatch(hideLoading());

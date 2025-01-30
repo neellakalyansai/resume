@@ -19,12 +19,12 @@ function AdminExperience() {
       dispatch(showLoading());
       let response;
       if (selectedItemForEdit) {
-        response = await axios.post('/update_experience', {
+        response = await axios.post('/api/update_experience', {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post('/add_experience', values);
+        response = await axios.post('/api/add_experience', values);
       }
       dispatch(hideLoading());
       if (response.status === 200) {
@@ -45,7 +45,7 @@ function AdminExperience() {
   const onDelete = async (item) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post('/delete_experience', {
+      const response = await axios.post('/api/delete_experience', {
         _id: item._id,
       });
       dispatch(hideLoading());

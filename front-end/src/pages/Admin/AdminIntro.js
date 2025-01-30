@@ -13,7 +13,7 @@ function AdminIntro() {
   const onFinish = async (values) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post('/update_intro', {
+      const response = await axios.post('/api/update_intro', {
         ...values,
         _id: portfolioData.intro._id,
       });

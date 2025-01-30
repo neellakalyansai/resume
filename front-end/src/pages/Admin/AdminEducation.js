@@ -19,12 +19,12 @@ function AdminEducation() {
       dispatch(showLoading());
       let response;
       if (selectedItemForEdit) {
-        response = await axios.post('/update_education', {
+        response = await axios.post('/api/update_education', {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post('/add_education', values);
+        response = await axios.post('/api/add_education', values);
       }
       dispatch(hideLoading());
       if (response.status === 200) {
@@ -45,7 +45,7 @@ function AdminEducation() {
   const onDelete = async (item) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post('/delete_education', {
+      const response = await axios.post('/api/delete_education', {
         _id: item._id,
       });
       dispatch(hideLoading());
