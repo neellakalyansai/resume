@@ -3,7 +3,7 @@ const serverless = require("serverless-http");
 require("dotenv").config();
 const path = require("path");
 const cors = require("cors");
-
+const fs = require("fs");  
 require("../Models/user-model");
 require("../Models/portfolio-model");
 
